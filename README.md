@@ -1,6 +1,6 @@
 # Web Page CCTV RTSP Dashboard
 
-A local web dashboard for viewing Hikvision NVR RTSP channels. The app uses:
+A local web dashboard for viewing Hikvision or other vendors NVR RTSP channels. The app uses:
 - FastAPI for camera management/API
 - MediaMTX to pull RTSP from the NVR and expose HLS
 - hls.js in the browser
@@ -12,7 +12,7 @@ A local web dashboard for viewing Hikvision NVR RTSP channels. The app uses:
 - Python 3.11 or newer (Python 3.12 recommended; Python 3.14 works with the updated dependency list)
 - MediaMTX Windows AMD64 binary
 - Browser: current Microsoft Edge or Chrome
-- Network reachability from the Windows Server to NVR RTSP port (usually TCP 554)
+- Network reachability from the Windows to NVR RTSP port (usually TCP 554)
 
 ## 2. Install
 
