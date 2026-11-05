@@ -1,0 +1,19 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Camera configuration and credentials
+data/cameras.json
+data/mediamtx.log
+
+# Backup
+*.backup
+*.bak
+
+# MediaMTX binary
+mediamtx.exe

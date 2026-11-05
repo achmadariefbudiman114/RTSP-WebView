@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MyCCTV | Live Monitoring</title>
+<link rel="stylesheet" href="/static/style.css?v=1.7">
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">◈</div><div><b>MyCCTV</b><small>VIDEO MANAGEMENT</small></div></div>
+  <div class="side-label">MONITORING</div>
+  <button class="nav active">▦ &nbsp; Live View</button>
+  <button class="nav" id="manageNav">▤ &nbsp; Camera Management</button>
+  <div class="side-bottom"><span class="dot"></span> Local Gateway <small id="systemState">Checking…</small></div>
+</aside>
+<main>
+  <header><div><h1>Live Monitoring</h1><p>Real-time surveillance dashboard</p></div><div class="header-right"><span class="live-pill"><i></i> SYSTEM</span><span id="clock"></span></div></header>
+  <section class="toolbar">
+    <div class="layouts">
+      <span class="toolbar-label">LAYOUT</span>
+      <button class="layout-btn" data-layout="1">1</button><button class="layout-btn" data-layout="4">4</button><button class="layout-btn" data-layout="6">6</button><button class="layout-btn selected" data-layout="16">16</button><button class="layout-btn" data-layout="32">32</button><button class="layout-btn" data-layout="64">64</button>
+    </div>
+    <div class="toolbar-actions"><span id="cameraCount">0 cameras</span><button class="secondary" id="refreshBtn">↻ Refresh</button><button class="secondary" id="exportBtn">⇩ Export</button><button class="secondary" id="importBtn">⇧ Import</button><button class="primary" id="addBtn">＋ Add Camera</button></div>
+  </section>
+  <section id="pagination" class="pagination hidden" aria-label="Camera pages">
+    <button class="secondary" id="prevPageBtn" disabled>← Previous</button>
+    <span id="pageInfo">Page 1 / 1</span>
+    <button class="primary" id="nextPageBtn">Next Page →</button>
+  </section>
+  <section id="grid" class="camera-grid grid-16"></section>
+  <section id="manager" class="manager hidden">
+    <div class="manager-head"><div><h2>Camera Management</h2><p>Tambahkan stream RTSP dari NVR Hikvision.</p></div><div class="toolbar-actions"><button class="secondary" id="exportBtn2">⇩ Export Data</button><button class="secondary" id="importBtn2">⇧ Import Data</button><button class="primary" id="addBtn2">＋ Add Camera</button></div></div>
+    <div id="cameraTable"></div>
+  </section>
+  <footer><span>GARUDA CCTV MONITORING</span><span>RTSP → MediaMTX → HLS</span></footer>
+</main>
+<input type="file" id="importFile" accept=".json,application/json" hidden>
+<div class="modal hidden" id="modal">
+ <form class="dialog" id="cameraForm">
+  <div class="dialog-head"><div><h2 id="formTitle">Add Camera</h2><p>Masukkan detail channel RTSP NVR.</p></div><button type="button" class="close" id="closeModal">×</button></div>
+  <label>Camera Name<input name="name" required placeholder="Contoh: Lobby Entrance"></label>
+  <div class="two"><label>NVR Name<input name="nvr_name" value="Hikvision NVR"></label><label>Channel<input name="channel" type="number" min="1" max="256" value="1" required></label></div>
+  <label>RTSP URL<input name="rtsp_url" required placeholder="rtsp://username:password@192.168.1.10:554/Streaming/Channels/101"></label>
+  <small class="hint">Hikvision: channel 1 main stream = /Streaming/Channels/101; substream = /Streaming/Channels/102. Channel 2 = 201 / 202, dan seterusnya.</small>
+  <label class="check"><input name="enabled" type="checkbox" checked> Enabled</label>
+  <div class="dialog-actions"><button type="button" class="secondary" id="cancelBtn">Cancel</button><button class="primary" type="submit">Save Camera</button></div>
+  <div id="formError" class="error"></div>
+ </form>
+</div>
+<script src="/static/app.js?v=1.7"></script>
+</body></html>
