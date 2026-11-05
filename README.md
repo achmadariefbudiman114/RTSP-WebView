@@ -1,4 +1,4 @@
-# Page CCTV RTSP Dashboard
+# Web Page CCTV RTSP Dashboard
 
 A local web dashboard for viewing Hikvision NVR RTSP channels. The app uses:
 - FastAPI for camera management/API
