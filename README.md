@@ -8,7 +8,7 @@ A local web dashboard for viewing Hikvision NVR RTSP channels. The app uses:
 
 ## 1. Requirements
 
-- Windows Server 2019/2022/2025 (64-bit) recommended
+- Windows 64-bit
 - Python 3.11 or newer (Python 3.12 recommended; Python 3.14 works with the updated dependency list)
 - MediaMTX Windows AMD64 binary
 - Browser: current Microsoft Edge or Chrome
